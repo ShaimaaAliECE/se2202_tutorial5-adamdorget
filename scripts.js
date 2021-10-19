@@ -5,9 +5,9 @@ let nextPlayer = 'X'; // takes a value of either 'X' or 'O' according to the gam
 // use the value stored in the nextPlayer variable to indicate who the next player is
 let player1 = 'Y';
 let player2 = 'X';
-let nextLabel = document.getElementByID('next-lbl');
+let nextLabel = document.getElementById('next-lbl');
 nextLabel.innerText = nextPlayer
-let counter = 0;
+let counter =0;
 //This call will create the buttons needed for the gameboard.
 createGameBoard()
 
