@@ -3,8 +3,11 @@ let nextPlayer = 'X'; // takes a value of either 'X' or 'O' according to the gam
 //initialize the game
 
 // use the value stored in the nextPlayer variable to indicate who the next player is
-
-
+let player1 = 'Y';
+let player2 = 'X';
+let nextLabel = document.getElementByID('next-lbl');
+nextLabel.innerText = nextPlayer
+let counter = 0;
 //This call will create the buttons needed for the gameboard.
 createGameBoard()
 
@@ -27,6 +30,14 @@ function takeCell(event)
     /*
         When the button is clicked, the space inside its square brackets is replaced by the value in the nextPlayer before switching it
     */
+    let clickedButton = event.target;
+    clickedButton.innerText = nextPlayer;
+    clickedButton.disabled = true;
+    if (nextPLayer === 'X') {
+        nextPlayer = 'X';
+    }
+    nextLabel.innerText = nextPlayer;
+    counter++;
 
     // Make sure the button is clickable only once (I didn't mention how to do that, look it up :) )
 
@@ -34,6 +45,8 @@ function takeCell(event)
     if (isGameOver())
     {
         // let the lable with the id 'game-over-lbl' display the words 'Game Over' inside <h1> element
+        let gameOver = document.getElementById('game-over-lbl');
+        nextLabel.innerHTML = '<h1>GameOver</h1>'
     }
 
     // I'll leave declaring the winner for your intrinsic motivation, it's not required for this assignment 
@@ -42,5 +55,6 @@ function takeCell(event)
 function isGameOver()
 {
     // This function returns true if all the buttons are disabled and false otherwise 
+    return (counter == 9);
    
 }
